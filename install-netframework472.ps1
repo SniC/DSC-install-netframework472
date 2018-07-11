@@ -23,5 +23,6 @@
     }
 }
 
-NetFrameworkInstall -OutputPath C:\DSCDeployment
-Start-DscConfiguration -Wait -Path C:\DSCDeployment\ -Force
+# Uncomment to test on local machine
+# NetFrameworkInstall -OutputPath C:\DSCDeployment
+# Start-DscConfiguration -Wait -Path C:\DSCDeployment\ -Force
