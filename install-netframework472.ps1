@@ -11,7 +11,7 @@
                 $url = "https://download.microsoft.com/download/6/E/4/6E48E8AB-DC00-419E-9704-06DD46E5F81D/NDP472-KB4054530-x86-x64-AllOS-ENU.exe"
                 $filepath = "C:\DSCDeployment\NDP472-KB4054530-x86-x64-AllOS-ENU.exe"
                 Invoke-WebRequest -Uri $url -OutFile $filepath
-                Start-Process -FilePath $filepath -ArgumentList '/q /norestart' -Wait
+                #Start-Process -FilePath $filepath -ArgumentList '/q /norestart' -Wait
             }
 
             TestScript = {
