@@ -12,12 +12,9 @@
                 $output = "C:\NDP472-KB4054530-x86-x64-AllOS-ENU.exe"
 
                 # Download file
-                Invoke-WebRequest -Uri $url -OutFile $output -UseBasicParsing
+                Invoke-WebRequest -Uri $url -OutFile $output
 
                 # execute file
-                Write-Host "Hello world1"
-                #Start-Process -FilePath $output -ArgumentList '/passive /norestart /log "C:\"' -Wait
-
                 $proc = Start-Process -FilePath "C:\NDP472-KB4054530-x86-x64-AllOS-ENU.exe" -ArgumentList "/quiet /norestart /log C:\NDP472-KB4054530-x86-x64-AllOS-ENU_install.log" -PassThru -Wait
                 Switch($proc.ExitCode)
                 {
@@ -47,12 +44,12 @@
             TestScript = {
                 Get-ChildItem 'HKLM:SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\' |
                     Get-ItemPropertyValue -Name Release |
-                        ForEach-Object {$_ -ge 461814}
+                        ForEach-Object {$_ -ge 461815}
             }
         }
     }
 }
 
 # Uncomment to test on local machine
-NetFrameworkInstall -OutputPath C:\DSCDeployment
-Start-DscConfiguration -Path C:\DSCDeployment\ -force -Wait -Verbose
+#NetFrameworkInstall -OutputPath C:\DSCDeployment
+#Start-DscConfiguration -Path C:\DSCDeployment\ -force -Wait -Verbose
