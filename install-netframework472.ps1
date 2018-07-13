@@ -44,7 +44,7 @@
             TestScript = {
                 Get-ChildItem 'HKLM:SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full\' |
                     Get-ItemPropertyValue -Name Release |
-                        ForEach-Object {$_ -ge 461815}
+                        ForEach-Object {$_ -ge 461814}
             }
         }
     }
