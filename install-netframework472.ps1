@@ -2,6 +2,12 @@
     Import-DscResource -ModuleName PSDesiredStateConfiguration
 
     Node localhost {
+
+        LocalConfigurationManager
+        {        
+            RebootNodeIfNeeded = $true # This is false by default
+        }
+
         Script NetFrameworkInstall {
             GetScript = {
             }
